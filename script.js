@@ -79,6 +79,50 @@ function showFiltered(data){
         }
     }
 }
+//function for search
+function showSearch(data){
+    flags.innerHTML='';
+    
+    for(let i=0; i<data.length; i++){
+        let first = data[i].name[0];
+        let smallFirst = first.toLowerCase();
+        let name = data[i].name.replace(first,smallFirst)
+
+        if(name.includes(country.value) ){
+            let flag = document.createElement('div');
+            let countryFlag = data[i].flags.png;
+            let countryName = data[i].name;
+            let countryPopulation = data[i].population.toLocaleString('en-GB');
+            let countryRegion = data[i].region;
+            let countryCapital = data[i].capital;
+
+            flag.classList.add('flag');
+
+            flag.innerHTML = 
+            `<div class="top">
+                <img src="${countryFlag}" alt="flag">
+            </div>
+            <div class="bottom">
+                <h2>${countryName}</h2>
+                <p><strong>Population:</strong> ${countryPopulation}</p>
+                <p><strong>Region:</strong> ${countryRegion}</p>
+                <p><strong>Capital:</strong> ${countryCapital}</p>
+            </div>`;
+
+            flags.appendChild(flag);
+
+            flag.addEventListener('click',(e)=>{
+                const clickedCountryName = e.target.offsetParent.children[1].children[0].innerHTML
+                fetch(`data.json`)
+                .then(response => response.json())
+                .then(data=>showDetails(data,clickedCountryName,''))
+
+                allFlags.style.display='none';
+                details.style.display='flex';
+            })
+        }
+    }
+}
 // function for create and display country
 function show(data) {
     //create all flags
