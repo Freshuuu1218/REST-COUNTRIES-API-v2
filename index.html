@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Frontend Mentor | REST Countries API with color theme switcher</title>
+</head>
+<body>
+    <header>
+        <h1>Where in the world?</h1>
+        <div class="modeSwitch">
+            <input type="checkbox" id="modeSwitch">
+            <label for="modeSwitch">
+                <i class="far fa-moon"></i>
+            </label>
+            <p id="mode">Dark Mode</p>
+        </div>
+    </header>
+    <main>
+        <article id="allFlags">
+
+            <section id="searchFilter">
+                <input type="text" placeholder="Search for a country..." id="name">
+                <i class="fas fa-magnifying-glass"></i>
+                <select id="filter">
+                    <option value="all">All</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Americas">America</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+            </section>
+            <section id="flags"></section>
+        </article>
+        <article id="details">
+        </article>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
